@@ -1,0 +1,182 @@
+<!-- INSTRUÇÕES: Como integrar EmailJS para envio de emails
+
+Este arquivo contém exemplos de como integrar o EmailJS para habilitar o envio
+de emails através do formulário de contato.
+
+PASSO 1: Criar conta no EmailJS
+1. Acesse https://www.emailjs.com/
+2. Crie uma conta (pode ser com Google ou email)
+3. Confirme seu email
+
+PASSO 2: Configurar o Serviço de Email
+1. Na dashboard do EmailJS, vá para "Email Services"
+2. Clique em "Add Service"
+3. Escolha seu provedor (Gmail, Outlook, etc.)
+4. Siga as instruções para autorizar
+5. Copie o Service ID
+
+PASSO 3: Criar um Email Template
+1. Na dashboard, vá para "Email Templates"
+2. Clique em "Create New Template"
+3. Nomeie como "portfolio_contact"
+4. Configure conforme exemplo abaixo:
+
+   Subject: Novo Contato - {{from_name}}
+   
+   Body:
+   Olá Natália,
+   
+   Você recebeu uma nova mensagem do seu portfólio:
+   
+   Nome: {{from_name}}
+   Email: {{from_email}}
+   Mensagem: {{message}}
+   
+   Atenciosamente,
+   Sistema de Contato
+
+5. Copie o Template ID
+
+PASSO 4: Obter a Public Key
+1. Na dashboard, vá para "Account"
+2. Procure por "Public Key"
+3. Copie a chave
+
+PASSO 5: Adicionar o código no seu projeto
+   
+   Opção A: Adicionar um arquivo emailjs.html com integração completa
+   Opção B: Modificar o script.js existente conforme abaixo:
+
+-->
+
+<!-- ADICIONE ESTA LINHA NO HEAD DO index.html (antes de fechar </head>): -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+
+<!-- SUBSTITUA A SEÇÃO DE FORMULÁRIO DE CONTATO NO script.js POR: -->
+
+<script>
+// Inicializar EmailJS
+// SUBSTITUA "sua_public_key_aqui" PELA SUA CHAVE PÚBLICA DO EMAILJS
+emailjs.init("sua_public_key_aqui");
+
+// Configuração do formulário de contato com EmailJS
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nameInput = this.querySelector('input[type="text"]');
+        const emailInput = this.querySelector('input[type="email"]');
+        const messageInput = this.querySelector('textarea');
+        
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const message = messageInput.value;
+        
+        // Validação básica
+        if (!name || !email || !message) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+        
+        // Validar email
+        if (!validateEmail(email)) {
+            alert('Por favor, insira um email válido.');
+            return;
+        }
+        
+        // Mostrar loading
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Enviando...';
+        submitButton.disabled = true;
+        
+        // Enviar email via EmailJS
+        // SUBSTITUA OS VALORES:
+        // - "service_xxxxx" -> seu Service ID
+        // - "template_xxxxx" -> seu Template ID
+        emailjs.send("service_xxxxx", "template_xxxxx", {
+            from_name: name,
+            from_email: email,
+            message: message,
+            to_email: "seu_email@exemplo.com" // seu email para receber
+        }).then(response => {
+            console.log('Sucesso:', response);
+            alert('✅ Mensagem enviada com sucesso! Obrigado pelo contato.');
+            
+            // Limpar formulário
+            nameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+            
+        }).catch(error => {
+            console.error('Erro:', error);
+            alert('❌ Erro ao enviar mensagem. Por favor, tente novamente.');
+            
+        }).finally(() => {
+            // Restaurar botão
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        });
+    });
+}
+
+// Função para validar email
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+</script>
+
+<!-- 
+RESUMO DOS PASSOS:
+
+1. Copie a linha <script> do EmailJS
+2. Cole-a no <head> do index.html, antes de </head>
+3. Obtenha suas chaves (Public Key, Service ID, Template ID) do EmailJS
+4. Substitua "sua_public_key_aqui" pela sua Public Key
+5. Substitua "service_xxxxx" pelo seu Service ID
+6. Substitua "template_xxxxx" pelo seu Template ID
+7. Substitua "seu_email@exemplo.com" pelo seu email
+8. Copie o código JavaScript acima para substituir a seção de contato no script.js
+
+TESTANDO:
+
+1. Abra o navegador na sua página
+2. Preencha o formulário de contato
+3. Clique em "Enviar Mensagem"
+4. Você deve receber um email
+
+TROUBLESHOOTING:
+
+- Se não receber email, verifique:
+  * As chaves estão corretas?
+  * O Service está habilitado no EmailJS?
+  * O Template existe e tem o nome correto?
+  * O seu email no Service está verificado?
+  * Verifique o console (F12) para mensagens de erro
+
+ALTERNATIVAS:
+
+Se prefere usar outro serviço:
+
+1. Formspree (https://formspree.io/)
+   - Mais simples, sem integração JavaScript necessária
+   - Apenas mude o action do formulário para: https://formspree.io/f/seu_form_id
+
+2. SendGrid (https://sendgrid.com/)
+   - Mais profissional
+   - Requer mais configuração
+
+3. Seu próprio backend (Node.js, Python, etc.)
+   - Máximo controle
+   - Requer servidor próprio
+
+DICAS:
+
+- Sempre teste o formulário antes de publicar
+- Mantenha suas chaves em segredo (use variáveis de ambiente em produção)
+- Considere adicionar CAPTCHA para evitar spam
+- Salve as mensagens também em seu banco de dados
+
+-->

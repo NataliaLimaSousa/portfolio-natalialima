@@ -1,0 +1,340 @@
+<!-- 
+DOCUMENTO DE REFERÊNCIA - Personalizações Necessárias para a Landing Page
+====================================================================
+
+Este arquivo contém uma lista de todas as seções que precisam ser personalizadas
+com informações específicas de Natália Lima Sousa.
+
+SEÇÃO 1: INFORMAÇÕES DE CONTATO
+==============================
+
+Atualize a seguinte seção em index.html:
+
+    <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+            <h4>Email</h4>
+            <p><a href="mailto:ADICIONE_AQUI@example.com">ADICIONE_AQUI@example.com</a></p>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <div>
+            <h4>Telefone</h4>
+            <p><a href="tel:+55(85)999999999">+55 (85) 9999-9999</a></p>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+            <h4>Localização</h4>
+            <p>Fortaleza, Ceará - Brasil</p>
+        </div>
+    </div>
+
+
+SEÇÃO 2: REDES SOCIAIS
+======================
+
+Procure pela seção de redes sociais no footer e atualize:
+
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/seu-linkedin/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/seu-github" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://instagram.com/seu-instagram" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+
+SEÇÃO 3: LINKS PARA CURRÍCULO
+=============================
+
+Procure pela seção "#curriculo" e atualize os links:
+
+    <a href="caminho/para/seu-curriculo.pdf" class="btn btn-primary" target="_blank">
+        <i class="fas fa-file-pdf"></i> Visualizar Currículo (PDF)
+    </a>
+    <a href="caminho/para/download-curriculo.pdf" class="btn btn-secondary" target="_blank" download>
+        <i class="fas fa-download"></i> Download Currículo
+    </a>
+    <a href="https://www.linkedin.com/in/seu-linkedin/" class="btn btn-secondary" target="_blank">
+        <i class="fas fa-linkedin"></i> LinkedIn
+    </a>
+
+
+SEÇÃO 4: FOTO/IMAGEM PROFISSIONAL
+==================================
+
+Para adicionar uma foto profissional, substitua a seção ".image-placeholder" por:
+
+    <img src="caminho/para/sua-foto.jpg" alt="Natália Lima Sousa" class="hero-image">
+
+Ou mantenha o ícone e adicione CSS:
+
+    .hero-image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+
+SEÇÃO 5: ADICIONAR MAIS PROJETOS
+=================================
+
+Para adicionar novos projetos, copie este template na seção "projects-grid":
+
+    <div class="project-card">
+        <div class="project-icon">
+            <i class="fas fa-ICONE"></i>
+        </div>
+        <h3>Nome do Projeto</h3>
+        <p>Descrição breve do projeto.</p>
+        <div class="project-tags">
+            <span class="project-tag">Tag 1</span>
+            <span class="project-tag">Tag 2</span>
+        </div>
+    </div>
+
+Ícones disponíveis (Font Awesome):
+- fas fa-heartbeat
+- fas fa-laptop-medical
+- fas fa-chart-line
+- fas fa-database
+- fas fa-book
+- fas fa-university
+- fas fa-code
+- fas fa-flask
+- fas fa-microscope
+- fas fa-stethoscope
+
+
+SEÇÃO 6: ADICIONAR MAIS EXPERIÊNCIAS
+====================================
+
+Para adicionar novas experiências, adicione na seção "timeline":
+
+    <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+            <h3>Título do Cargo</h3>
+            <p class="timeline-date">2023 - 2024</p>
+            <p class="timeline-subtitle">Empresa ou Instituição</p>
+            <p>Descrição das atividades realizadas.</p>
+        </div>
+    </div>
+
+
+SEÇÃO 7: ADICIONAR CERTIFICADOS
+================================
+
+Para adicionar uma seção de certificados, adicione após a educação:
+
+    <section class="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificados e Cursos</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Nome do Certificado</h3>
+                    <p>Entidade Emissora</p>
+                    <a href="#">Ver Certificado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+SEÇÃO 8: ADICIONAR PUBLICAÇÕES
+==============================
+
+Para adicionar uma seção de publicações/artigos:
+
+    <section class="publications">
+        <div class="container">
+            <h2 class="section-title">Publicações</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3>Título do Artigo</h3>
+                    <p>Autores, Ano</p>
+                    <p>Journal/Revista</p>
+                    <a href="#" target="_blank" class="btn btn-small">Ler Artigo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+SEÇÃO 9: INTEGRAÇÃO DE FORMULÁRIO COM FORMSPREE
+===============================================
+
+Se preferir usar Formspree em vez de EmailJS:
+
+1. Acesse https://formspree.io/
+2. Crie uma conta
+3. Adicione seu formulário
+4. Copie o form ID
+5. Altere o formulário em index.html para:
+
+    <form action="https://formspree.io/f/SEU_FORM_ID" method="POST" class="contact-form">
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Seu Nome" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Seu Email" required>
+        </div>
+        <div class="form-group">
+            <textarea name="message" placeholder="Sua Mensagem" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+    </form>
+
+6. Remova a validação do script.js se usar esta opção
+
+
+SEÇÃO 10: DARK MODE (Opcional)
+==============================
+
+Para adicionar dark mode, adicione um toggle no navbar:
+
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+E adicione este JavaScript:
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const htmlElement = document.documentElement;
+    
+    // Verificar preferência salva
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        htmlElement.style.colorScheme = 'dark';
+        document.body.style.backgroundColor = '#1a1a1a';
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            localStorage.setItem('darkMode', 'disabled');
+            htmlElement.style.colorScheme = 'light';
+        } else {
+            localStorage.setItem('darkMode', 'enabled');
+            htmlElement.style.colorScheme = 'dark';
+        }
+    });
+
+
+SEÇÃO 11: META TAGS PARA SEO
+===========================
+
+Atualize as meta tags no <head> do index.html:
+
+    <meta name="description" content="Portfólio profissional de Natália Lima Sousa - Especialista em Saúde Coletiva e Economia da Saúde">
+    <meta name="keywords" content="Saúde Coletiva, Economia da Saúde, Telemedicina, Enfermagem">
+    <meta name="author" content="Natália Lima Sousa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Natália Lima Sousa - Portfólio">
+    <meta property="og:description" content="Profissional de Saúde Coletiva com foco em Economia da Saúde e Tecnologia">
+    <meta property="og:image" content="caminho/para/imagem.jpg">
+
+
+SEÇÃO 12: GOOGLE ANALYTICS
+==========================
+
+Para adicionar analytics, adicione antes de </head>:
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+Substitua GA_MEASUREMENT_ID pelo seu ID do Google Analytics.
+
+
+CHECKLIST DE IMPLEMENTAÇÃO
+=========================
+
+☐ Atualizar email de contato
+☐ Atualizar telefone
+☐ Atualizar endereço/localização
+☐ Adicionar links de redes sociais
+☐ Adicionar foto profissional
+☐ Atualizar links de currículo
+☐ Integrar envio de emails (EmailJS ou Formspree)
+☐ Adicionar mais projetos (se houver)
+☐ Adicionar certificados (se houver)
+☐ Adicionar publicações (se houver)
+☐ Adicionar meta tags para SEO
+☐ Testar em desktop
+☐ Testar em tablet
+☐ Testar em mobile
+☐ Testar formulário de contato
+☐ Testar links internos
+☐ Testar links externos
+☐ Otimizar imagens
+☐ Verificar ortografia e gramática
+☐ Publicar em hospedagem
+
+FONTS ADICIONAIS
+================
+
+Se quiser adicionar fontes do Google Fonts, adicione no <head>:
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+E no CSS, atualize:
+
+    body {
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+TIPOS DE HOSTS RECOMENDADOS
+============================
+
+Para hospedar sua landing page gratuitamente:
+
+1. GitHub Pages
+   - Simples e rápido
+   - Integrado com Git
+   - URL: seu-usuario.github.io/nome-repo
+
+2. Netlify
+   - Drag and drop
+   - Integração com formulários
+   - URL gratuita
+
+3. Vercel
+   - Ótimo para performance
+   - Integração com Git
+   - URL gratuita
+
+4. Firebase Hosting
+   - Google Cloud
+   - Gratuito até certo limite
+   - URL customizável
+
+SUPORTE E RECURSOS
+==================
+
+Font Awesome Icons: https://fontawesome.com/icons
+Google Fonts: https://fonts.google.com/
+Color Palette Generator: https://coolors.co/
+Image Compression: https://tinypng.com/
+Responsiveness Tester: https://responsively.app/
+
+-->
