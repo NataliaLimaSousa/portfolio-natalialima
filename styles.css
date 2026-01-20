@@ -255,6 +255,7 @@ body {
     text-decoration: none;
     transition: var(--transition);
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .nav-menu a:hover {
@@ -328,10 +329,12 @@ body.dark-mode .theme-btn:hover {
 .hero {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: white;
-    padding: 100px 0;
+    padding: 30px 0;
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
+    border-radius: 0 0 30px 30px;
+    margin: 0 20px;
 }
 
 .hero-content {
@@ -437,7 +440,8 @@ body.dark-mode .number-card p {
     align-items: center;
     justify-content: flex-end;
     font-size: 120px;
-    border: 3px solid white;
+    border: 6px solid #93C0A4;
+    box-shadow: 0 0 20px rgba(147, 192, 164, 0.5);
 }
 
 /* Botões */
