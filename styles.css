@@ -340,7 +340,7 @@ body.dark-mode .theme-btn:hover {
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60rem;
+    gap: 20rem;
     align-items: center;
     grid-template-areas: "text image";
 }
@@ -348,7 +348,7 @@ body.dark-mode .theme-btn:hover {
 .hero-text {
     grid-area: text;
     margin-bottom: 3rem;
-    margin-left: 4rem;
+    margin-left: 20rem;
 }
 
 .hero-image {
@@ -432,8 +432,8 @@ body.dark-mode .number-card p {
 }
 
 .image-placeholder {
-    width: 300px;
-    height: 300px;
+    width: 380px;
+    height: 380px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
@@ -1077,9 +1077,10 @@ body.dark-mode .experience {
     }
 
     .image-placeholder {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
         font-size: 100px;
+        margin: 0 auto;
     }
 
     .about-content {
