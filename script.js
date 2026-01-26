@@ -44,6 +44,35 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
+// Fechar menu ao tocar fora dele (mobile)
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.navbar')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
+// Detectar swipe para fechar menu (mobile)
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
+
+function handleSwipe() {
+    // Se fez swipe para esquerda (fechar menu)
+    if (touchStartX - touchEndX > 50 && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+}
+
 // Carregar imagem do hero
 const heroImage = document.getElementById('heroImage');
 // Carrega imagem da pasta local
