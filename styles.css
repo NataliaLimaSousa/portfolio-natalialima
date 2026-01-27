@@ -890,6 +890,87 @@ body.dark-mode .experience {
     margin-right: 0.5rem;
 }
 
+/* Produções Acadêmicas */
+.academic-productions {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.productions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.production-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    border-top: 4px solid #6558FE;
+}
+
+.production-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(101, 88, 254, 0.2);
+}
+
+.production-header {
+    margin-bottom: 1.5rem;
+}
+
+.production-header i {
+    font-size: 2.5rem;
+    color: #6558FE;
+    margin-bottom: 1rem;
+}
+
+.production-header h3 {
+    color: #6558FE;
+    font-size: 1.3rem;
+}
+
+.production-count {
+    margin: 1.5rem 0;
+}
+
+.big-number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #6558FE;
+    display: block;
+    line-height: 1;
+}
+
+.production-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body.dark-mode .academic-productions {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+body.dark-mode .production-card {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+body.dark-mode .production-header h3 {
+    color: #93C0A4;
+}
+
+body.dark-mode .big-number {
+    color: #93C0A4;
+}
+
+body.dark-mode .production-description {
+    color: #b0b0b0;
+}
+
 /* Contato */
 .contact {
     padding: 80px 0;
