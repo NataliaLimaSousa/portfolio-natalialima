@@ -144,10 +144,6 @@ body.dark-mode .contact-item p {
     color: #b0b0b0;
 }
 
-body.dark-mode .contact-item a {
-    color: #93C0A4;
-}
-
 body.dark-mode .contact-item h4 {
     color: #6558FE;
 }
@@ -1003,7 +999,10 @@ body.dark-mode .production-description {
 }
 
 .contact-info {
-    display: contents;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    width: 100%;
 }
 
 .contact-item {
@@ -1018,6 +1017,8 @@ body.dark-mode .production-description {
     cursor: pointer;
     min-width: 150px;
     border: 2px solid transparent;
+    text-decoration: none;
+    color: inherit;
 }
 
 .contact-item:hover {
@@ -1040,18 +1041,7 @@ body.dark-mode .production-description {
 .contact-item p {
     color: #666;
     font-size: 0.9rem;
-}
-
-.contact-item a {
-    color: #93C0A4;
-    text-decoration: none;
-    transition: var(--transition);
-    font-weight: 500;
-    word-break: break-word;
-}
-
-.contact-item a:hover {
-    text-decoration: underline;
+    margin: 0;
 }
 
 .form-group input,
