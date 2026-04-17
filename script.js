@@ -177,10 +177,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Adicionar animação suave de transição
+            target.style.animation = 'none';
+            setTimeout(() => {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Retrigger animation
+                target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            }, 100);
         }
     });
 });
@@ -247,6 +253,54 @@ window.addEventListener('scroll', () => {
             link.classList.add('active');
         }
     });
+});
+
+// Animar body ao carregar
+window.addEventListener('load', () => {
+    document.body.style.animation = 'fadeInBody 1s ease-in';
+});
+
+// Criar estilo para animação do body
+const bodyStyleElement = document.createElement('style');
+bodyStyleElement.textContent = `
+    @keyframes fadeInBody {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    body {
+        animation: fadeInBody 0.8s ease-out;
+    }
+`;
+document.head.appendChild(bodyStyleElement);
+
+// Animar seções ao entrar na viewport
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            entry.target.style.opacity = '1';
+            
+            // Animar elementos filhos um por um
+            const cards = entry.target.querySelectorAll('.skill-card, .education-card, .production-card, .number-card, .project-card, .timeline-item');
+            cards.forEach((card, index) => {
+                card.style.animation = `fadeInUp 0.6s ease-out ${0.1 * (index + 1)}s forwards`;
+                card.style.opacity = '0';
+            });
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observar todas as seções
+document.querySelectorAll('section').forEach(section => {
+    sectionObserver.observe(section);
 });
 
 // Adicionar estilo para link ativo

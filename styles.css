@@ -220,6 +220,622 @@ body.dark-mode .footer-bottom {
     color: #bbb;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-5deg) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0) translateY(0);
+    }
+}
+
+@keyframes textSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+        letter-spacing: 2px;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        letter-spacing: 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Aplicar animações às seções */
+section {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+    scroll-behavior: smooth;
+}
+
+.hero {
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+.about {
+    animation-delay: 0.1s;
+}
+
+.experience-numbers {
+    animation-delay: 0.2s;
+}
+
+.experience {
+    animation-delay: 0.3s;
+}
+
+.education {
+    animation-delay: 0.4s;
+}
+
+.technical-skills {
+    animation-delay: 0.5s;
+}
+
+.academic-productions {
+    animation-delay: 0.6s;
+}
+
+.projects {
+    animation-delay: 0.7s;
+}
+
+.curriculum {
+    animation-delay: 0.8s;
+}
+
+.contact {
+    animation-delay: 0.9s;
+}
+
+/* Animação para elementos dentro das seções */
+.section-title {
+    animation: slideInFromTop 0.7s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+    transition: all 0.3s ease;
+}
+
+.section-title:hover {
+    transform: translateY(-2px);
+}
+
+.about-content > div {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.about-content > div:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.about-content > div:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.about-text p {
+    transition: color 0.3s ease;
+}
+
+.about-text p:hover {
+    color: #6558FE;
+}
+
+/* Animações para skill cards */
+.skill-card {
+    animation: rotateIn 0.6s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.skill-card:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.skill-card:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.skill-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.skill-card:nth-child(n+4) {
+    animation-delay: calc(0.6s + 0.1s * (var(--index, 0) - 1));
+}
+
+/* Animações para education cards */
+.education-card {
+    animation: slideInFromTop 0.6s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.education-card:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.education-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.education-card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.education-card:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+/* Animações para project cards */
+.project-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.65s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+/* Animações para timeline items */
+.timeline-item {
+    animation: fadeInLeft 0.7s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+/* Animações para production cards */
+.production-card {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.production-card:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.production-card:nth-child(2) {
+    animation-delay: 0.65s;
+}
+
+.production-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.production-card:nth-child(4) {
+    animation-delay: 0.95s;
+}
+
+/* Animações para number cards */
+.number-card {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.number-card:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.number-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+/* Animações para contact items */
+.contact-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-item:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.contact-item:nth-child(2) {
+    animation-delay: 0.65s;
+}
+
+.contact-item:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+/* Animação para hero text */
+.hero-text h2 {
+    animation: textSlideIn 1s ease-out forwards;
+}
+
+.hero-subtitle {
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.hero-buttons {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.5s;
+}
+
+.hero-image {
+    animation: fadeInRight 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+/* Transição suave ao passar o mouse entre seções */
+section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode section:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de wave ao passar o mouse */
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.skill-card:hover,
+.education-card:hover,
+.production-card:hover,
+.project-card:hover,
+.number-card:hover {
+    animation: wave 0.6s ease;
+}
+
+/* Transição para navbar */
+.navbar {
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.navbar:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Transição para skill items */
+.skill-item {
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+/* Transição para timeline content */
+.timeline-content {
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .timeline-content:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animação suave para ícones */
+.skill-card i,
+.production-header i {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill-card:hover i,
+.production-card:hover i,
+.education-card:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Transição para texto em links */
+a {
+    transition: all 0.3s ease;
+}
+
+/* Animação suave de entrada para footer */
+.footer {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Efeito de brilho em hover para navbar links */
+.nav-menu a {
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #93C0A4, #6558FE);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before {
+    width: 100%;
+}
+
+/* Animação de pulse suave para elementos importantes */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Efeito de brilho ao hover em cards */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skill-card,
+.education-card,
+.production-card,
+.project-card,
+.number-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before,
+.education-card::before,
+.production-card::before,
+.project-card::before,
+.number-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.skill-card:hover::before,
+.education-card:hover::before,
+.production-card:hover::before,
+.project-card:hover::before,
+.number-card:hover::before {
+    left: 100%;
+}
+
+/* Animações para os títulos das seções */
+.section-title {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #93C0A4, #6558FE);
+    transition: width 0.6s ease;
+}
+
+section:hover .section-title::before {
+    width: 100px;
+}
+
+/* Transição suave para inputs */
+.form-group input,
+.form-group textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    transform: scale(1.02);
+}
+
+/* Animação para links nav ao hover */
+.nav-menu a {
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #93C0A4;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Animação para botões */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Animação para footer */
+.footer-section ul li a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #93C0A4;
+    transition: width 0.3s ease;
+}
+
+.footer-section ul li a:hover::after {
+    width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
 }
